@@ -39,6 +39,8 @@
     </main>
 
     <script src="{{ asset('assets/dist/js/bootstrap.bundle.min.js') }}"></script>
+
+    @stack('scripts')
 </body>
 
 </html>

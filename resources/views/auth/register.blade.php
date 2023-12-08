@@ -43,14 +43,20 @@
                 </span>
             @enderror
 
-            <label for="floatingPassword">Password</label>
+            <label for="password">Password</label>
+            <span class="password-toggle-icon" onclick="togglePasswordVisibility('password')">
+                <i id="password-icon" class="bi bi-eye"></i>
+            </span>
         </div>
 
-        <div class="form-floating">
+        <div class="form-floating mb-3">
             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
                 autocomplete="new-password">
 
-            <label for="floatingPassword">Confirm password</label>
+            <label for="password-confirm">Confirm Password</label>
+            <span class="password-toggle-icon" onclick="togglePasswordVisibility('password-confirm')">
+                <i id="password-confirm-icon" class="bi bi-eye"></i>
+            </span>
         </div>
 
         <button class="btn btn-primary w-100 py-2 mb-3" type="submit">Register</button>
@@ -58,3 +64,22 @@
         <p class="mt-5 mb-3 text-body-secondary">&copy; Portal Berita 2023</p>
     </form>
 @endsection
+
+@push('scripts')
+    <script>
+        function togglePasswordVisibility(inputId) {
+            var passwordInput = document.getElementById(inputId);
+            var passwordIcon = document.getElementById(inputId + '-icon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordIcon.classList.remove('bi-eye');
+                passwordIcon.classList.add('bi-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                passwordIcon.classList.remove('bi-eye-slash');
+                passwordIcon.classList.add('bi-eye');
+            }
+        }
+    </script>
+@endpush

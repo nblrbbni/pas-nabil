@@ -11,7 +11,7 @@
                         </svg>
                         <span class="visually-hidden">Home</span>
                     </a>
-                    <li class="text-muted mx-1">Home</li>
+                <li class="text-muted mx-1">Home</li>
                 </li>
             </ol>
         </nav>
@@ -33,6 +33,7 @@
 
             <label for="floatingInput">Email address</label>
         </div>
+
         <div class="form-floating">
             <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
                 id="floatingPassword" placeholder="Password" required>
@@ -43,6 +44,10 @@
             @enderror
 
             <label for="floatingPassword">Password</label>
+
+            <span class="password-toggle-icon" onclick="togglePasswordVisibility()">
+                <i id="password-icon" class="bi bi-eye"></i>
+            </span>
         </div>
 
         <div class="form-check text-start my-3">
@@ -58,3 +63,22 @@
         <p class="mt-5 mb-3 text-body-secondary">&copy; Portal Berita 2023</p>
     </form>
 @endsection
+
+@push('scripts')
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById('floatingPassword');
+            var passwordIcon = document.getElementById('password-icon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordIcon.classList.remove('bi-eye');
+                passwordIcon.classList.add('bi-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                passwordIcon.classList.remove('bi-eye-slash');
+                passwordIcon.classList.add('bi-eye');
+            }
+        }
+    </script>
+@endpush
