@@ -49,7 +49,7 @@ class BeritaController extends Controller
 
         $berita->save();
 
-        return redirect('/berita')->with('success', 'added data successfully');
+        return redirect('/berita')->with('success', 'News added successfully!');
     }
 
     public function edit($id)
@@ -100,7 +100,7 @@ class BeritaController extends Controller
 
             $berita->save();
 
-            return redirect('/berita');
+            return redirect('/berita')->with('success', 'News updated successfully!');
         }
     }
 
@@ -112,6 +112,6 @@ class BeritaController extends Controller
         File::delete($path . $berita->gambar);
         $berita->delete();
 
-        return redirect('/berita')->with('success', 'success, data deleted');
+        return redirect('/berita')->with('success', 'News successfully deleted!');
     }
 }

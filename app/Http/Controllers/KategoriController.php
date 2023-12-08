@@ -24,7 +24,7 @@ class KategoriController extends Controller
             'nama_kategori' => $request->nama_kategori,
         ]);
 
-        return redirect('/kategori')->with('success', 'Kategori berhasil ditambahkan');
+        return redirect('/kategori')->with('success', 'Category added successfully!');
     }
 
     public function edit($id)
@@ -43,13 +43,13 @@ class KategoriController extends Controller
             'nama_kategori' => $request->nama_kategori,
         ]);
 
-        return redirect('/kategori')->with('success', 'Kategori berhasil diperbarui');
+        return redirect('/kategori')->with('success', 'Category updated successfully!');
     }
 
     public function destroy($id)
     {
         Kategori::destroy($id);
 
-        return redirect()->to('/kategori')->with('success', 'Kategori berhasil dihapus');
+        return redirect()->to('/kategori')->with('success', 'Category successfully deleted!');
     }
 }
