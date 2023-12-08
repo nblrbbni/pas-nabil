@@ -26,26 +26,30 @@ class KategoriController extends Controller
         return redirect('/kategori')->with('success', 'Data berhasil ditambahkan');
     }
 
-    public function edit(Kategori $kategori)
+    public function edit($id)
     {
+        $kategori     = Kategori::findOrFail($id);
         return view('admin.kategori.edit', compact('kategori'));
     }
 
-    public function update(Request $request, Kategori $kategori)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'nama_kategori' => 'required',
         ]);
 
-        $kategori->update(['nama_kategori' => $request->nama_kategori]);
+        $kategori = Kategori::find($id);
 
-        return redirect('/kategori')->with('success', 'Update data berhasil');
+        $kategori->nama_kategori = $request->nama_kategori;
+
+        $kategori->save();
+
+        return redirect('/kategori');
     }
 
-    public function destroy(Kategori $kategori)
+    public function destroy($id)
     {
-        $kategori->delete();
-        
-        return redirect('/kategori')->with('success', 'Data berhasil dihapus');
+        Kategori::where('id', $id)->delete();
+        return redirect()->to('/kategori')->with('success', 'The data has been successfully deleted');
     }
 }
