@@ -19,14 +19,12 @@
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
-
         <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
         <div class="form-floating">
             <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
                 value="{{ old('email') }}" id="floatingInput" placeholder="name@example.com" required>
-
             @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -38,7 +36,6 @@
         <div class="form-floating">
             <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
                 id="floatingPassword" placeholder="Password" required>
-
             @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
