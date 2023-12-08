@@ -58,7 +58,7 @@
                                             action="{{ route('kategori.delete', $value->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-sm btn-danger mb-0">Delete</button>
+                                            <button class="btn btn-sm btn-danger mb-0" id="delete">Delete</button>
                                         </form>
                                     </td>
                                 </tr>
