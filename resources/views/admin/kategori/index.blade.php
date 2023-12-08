@@ -7,11 +7,6 @@
 @section('content')
     <div class="container">
         <div class="mb-3">
-            @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
             <div class="card">
                 <div class="card-header">
                     <h5 class="fw-bold my-auto">Tambah Kategori</h5>
@@ -21,7 +16,8 @@
                         @csrf
                         <div class="mb-3">
                             <label for="namaJudul" class="form-label">Nama Kategori</label>
-                            <input type="text" name="nama_kategori" class="form-control" id="namaJudul" placeholder="Maksimal 20 karakter" required>
+                            <input type="text" name="nama_kategori" class="form-control" id="namaJudul"
+                                placeholder="Maksimal 20 karakter" required>
                         </div>
                         @error('nama_kategori')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -54,11 +50,12 @@
                                     <td>
                                         <a href="{{ route('kategori.edit', $value->id) }}"
                                             class="btn btn-sm btn-warning">Edit</a>
-                                        <form class="d-inline" onsubmit="return confirm('Sure to delete this data?')"
-                                            action="{{ route('kategori.delete', $value->id) }}" method="post">
+                                        <form class="d-inline" action="{{ route('kategori.delete', $value->id) }}"
+                                            method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-sm btn-danger mb-0" id="delete">Delete</button>
+                                            <button class="btn btn-sm btn-danger mb-0" id="delete"
+                                                data-confirm-delete="true">Delete</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -70,4 +67,3 @@
         </div>
     </div>
 @endsection
-

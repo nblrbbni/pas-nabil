@@ -25,6 +25,7 @@
 </head>
 
 <body>
+    {{-- Sweatalert --}}
     @include('sweetalert::alert')
 
     {{-- SVG --}}

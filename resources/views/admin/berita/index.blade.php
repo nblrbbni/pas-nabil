@@ -6,12 +6,6 @@
 
 @section('content')
     <div class="container">
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-        
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-between">

@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KategoriController extends Controller
 {
     public function index()
     {
         $kategori = Kategori::all();
-
+    
         return view('admin.kategori.index', ['kategori' => $kategori]);
     }
+    
 
     public function store(Request $request)
     {
@@ -24,7 +26,7 @@ class KategoriController extends Controller
             'nama_kategori' => $request->nama_kategori,
         ]);
 
-        return redirect('/kategori')->with('toast_success', 'Category added successfully!');
+        return redirect('/kategori')->with('success', 'Category added successfully!');
     }
 
     public function edit($id)
@@ -43,13 +45,13 @@ class KategoriController extends Controller
             'nama_kategori' => $request->nama_kategori,
         ]);
 
-        return redirect('/kategori')->with('toast_success', 'Category updated successfully!');
+        return redirect('/kategori')->with('success', 'Category updated successfully!');
     }
 
     public function destroy($id)
     {
         Kategori::destroy($id);
 
-        return redirect()->to('/kategori')->with('toast_success', 'Category successfully deleted!');
+        return redirect()->to('/kategori')->with('success', 'Category successfully deleted!');
     }
 }
