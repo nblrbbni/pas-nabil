@@ -12,7 +12,7 @@ class BeritaController extends Controller
 {
     public function index()
     {
-        $berita = berita::get();
+        $berita = Berita::get();
         return view('admin.berita.index', compact('berita'));
     }
 
