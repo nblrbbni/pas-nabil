@@ -19,9 +19,6 @@
                             <input type="text" name="nama_kategori" class="form-control" id="namaJudul"
                                 placeholder="Maksimal 20 karakter" required>
                         </div>
-                        @error('nama_kategori')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
                         <button type="submit" class="btn btn-primary">Tambah</button>
                     </form>
                 </div>
@@ -34,7 +31,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive small">
-                    <table class="table">
+                    <table class="table" id="myTable">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -50,7 +47,7 @@
                                     <td>
                                         <a href="{{ route('kategori.edit', $value->id) }}"
                                             class="btn btn-sm btn-warning">Edit</a>
-                                        <form class="d-inline" action="{{ route('kategori.delete', $value->id) }}"
+                                        <form class="d-inline" onsubmit="return confirm('Sure to delete this data?')" action="{{ route('kategori.delete', $value->id) }}"
                                             method="post">
                                             @csrf
                                             @method('DELETE')

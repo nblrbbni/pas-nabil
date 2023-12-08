@@ -31,7 +31,7 @@ class BeritaController extends Controller
             'kategori_id'   => 'required',
             'judul'         => 'required',
             'gambar'        => 'required|image|mimes:jpg,png,jpeg',
-            'isi'           => 'required'
+            'isi'           => 'required|string',
         ]);
 
 
@@ -67,7 +67,7 @@ class BeritaController extends Controller
             'kategori_id'   => 'required',
             'judul'         => 'required',
             'gambar'        => 'image|mimes:jpg,png,jpeg',
-            'isi'           => 'required'
+            'isi'           => 'required',
         ]);
 
 
@@ -90,7 +90,9 @@ class BeritaController extends Controller
             $berita->save();
 
             return redirect('/berita');
-        } else {
+        } 
+        
+        else {
             $berita = Berita::find($id);
 
             $berita->user_id     = auth()->user()->id;

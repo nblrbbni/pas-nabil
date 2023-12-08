@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class KategoriController extends Controller
 {
@@ -31,7 +30,7 @@ class KategoriController extends Controller
 
     public function edit($id)
     {
-        $kategori     = Kategori::findOrFail($id);
+        $kategori = Kategori::findOrFail($id);
         return view('admin.kategori.edit', compact('kategori'));
     }
 

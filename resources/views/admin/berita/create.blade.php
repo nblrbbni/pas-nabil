@@ -33,10 +33,8 @@
                     <div class="mb-3">
                         <label for="namaJudul" class="form-label">Judul</label>
                         <input type="text" name="judul" class="form-control" id="namaJudul" required>
-                        @error('judul')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
                     </div>
+
                     <div class="mb-3">
                         <label for="kategoriSelect" class="form-label">Kategori</label>
                         <select class="form-select" name="kategori_id" id="kategoriSelect">
@@ -48,6 +46,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="mb-3">
                         <label for="imageFile" class="form-label">Gambar</label>
                         <div class="card shadow-none border text-center p-3">
@@ -58,12 +57,10 @@
                                     alt="">
                                 <input accept="image/*" type="file" name="gambar" class="form-control mt-3"
                                     id="imageFile" onchange="previewImage()">
-                                @error('gambar')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
                             </label>
                         </div>
                     </div>
+
                     <div class="mb-3">
                         <label for="isi" class="form-label">Isi</label>
                         <div id="isi" style="height: 150px; overflow-y: auto;"></div>
